@@ -37,14 +37,38 @@ A modern, feature-rich interactive mapping application with glassmorphism design
 
 ## Deployment
 
-This application is ready for deployment to any web server. Simply upload all files to your web server root directory.
+This application is ready for deployment and includes automated GitHub Pages deployment.
 
-### Recommended Hosting
+### 🚀 GitHub Pages (Automated)
 
-- **GitHub Pages** - Free static hosting
-- **Netlify** - Easy deployment with CI/CD
-- **Vercel** - Fast deployment with edge functions
+The repository includes a GitHub Actions workflow that automatically deploys to GitHub Pages on every push to the main branch.
+
+**Live Demo**: [https://mharyanjune.github.io/maps](https://mharyanjune.github.io/maps)
+
+**To enable GitHub Pages:**
+1. Go to your repository on GitHub
+2. Navigate to Settings → Pages
+3. Under "Source", select "GitHub Actions"
+4. The deployment will run automatically on the next push
+
+### Manual Deployment Options
+
+- **Netlify** - Drag & drop deployment with custom domains
+- **Vercel** - Zero-config deployment with automatic SSL  
 - **Firebase Hosting** - Google's hosting platform
+- **AWS S3 + CloudFront** - Scalable cloud hosting
+
+### Local Development
+
+```bash
+# Start a local web server
+python3 -m http.server 8080
+
+# Or use Node.js
+npx http-server -p 8080
+
+# Then visit http://localhost:8080
+```
 
 ## License
 
