@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Allow crawling of all static assets
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+Allow: /*.webp
+
+# Disallow test files
+Disallow: /test.html
+Disallow: /test/
+Disallow: /*.test.*

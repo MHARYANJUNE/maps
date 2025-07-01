@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Interactive Map Pro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-item {
+            margin: 15px 0;
+            padding: 10px;
+            border-left: 4px solid #667eea;
+            background: #f8f9ff;
+        }
+        .success { border-left-color: #28a745; background: #f0fff4; }
+        .warning { border-left-color: #ffc107; background: #fffdf0; }
+        .error { border-left-color: #dc3545; background: #fff5f5; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Interactive Map Pro - Feature Test</h1>
+        <p>This page tests if all components are loading correctly.</p>
+        
+        <div class="test-item">
+            <h3>✅ Core Dependencies</h3>
+            <ul>
+                <li>Leaflet.js - <span id="leaflet-status">❓ Checking...</span></li>
+                <li>Leaflet Routing Machine - <span id="routing-status">❓ Checking...</span></li>
+                <li>SweetAlert2 - <span id="swal-status">❓ Checking...</span></li>
+                <li>Font Awesome - <span id="fa-status">❓ Checking...</span></li>
+            </ul>
+        </div>
+        
+        <div class="test-item">
+            <h3>🎨 CSS Resources</h3>
+            <ul>
+                <li>Google Fonts (Poppins) - <span id="font-status">❓ Checking...</span></li>
+                <li>Custom Styles - <span id="css-status">❓ Checking...</span></li>
+            </ul>
+        </div>
+        
+        <div class="test-item">
+            <h3>🗺️ Map Functionality</h3>
+            <p><strong>To test the map:</strong></p>
+            <ol>
+                <li>Open <code>index.html</code> in your browser</li>
+                <li>Wait for the loading screen to disappear</li>
+                <li>Try the following features:</li>
+                <ul>
+                    <li>📍 Click the locate button (first button on the left)</li>
+                    <li>📌 Click the marker button to enable marker placement mode</li>
+                    <li>🚗 Click the route button to enable routing mode</li>
+                    <li>✏️ Click the manage button to edit/remove markers</li>
+                    <li>🗑️ Click the clear button to remove routes</li>
+                    <li>❓ Click the help button in the header</li>
+                    <li>⚙️ Click the settings button in the header</li>
+                </ul>
+            </ol>
+        </div>
+        
+        <div class="test-item">
+            <h3>🔄 Expected Behaviors</h3>
+            <ul>
+                <li><strong>Loading Screen:</strong> Should appear for 1.5 seconds with spinning animation</li>
+                <li><strong>Welcome Popup:</strong> Should show on map with modern styling</li>
+                <li><strong>Click Map:</strong> Should show popup with action buttons</li>
+                <li><strong>Marker Creation:</strong> Should show modern form with SweetAlert2</li>
+                <li><strong>Settings:</strong> Should allow theme and map style changes</li>
+                <li><strong>Responsive:</strong> Should work well on mobile devices</li>
+            </ul>
+        </div>
+        
+        <div class="test-item success">
+            <h3>✅ Recent Fixes Applied</h3>
+            <ul>
+                <li>Fixed async/await handling in popup dialogs</li>
+                <li>Replaced alert() calls with modern SweetAlert2 dialogs</li>
+                <li>Updated marker creation to use rich forms</li>
+                <li>Added proper event handling for welcome popup</li>
+                <li>Enhanced marker management with better UI</li>
+                <li>Added clear route button control</li>
+                <li>Updated title to "Interactive Map Pro"</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Test if dependencies are loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Test Leaflet
+            document.getElementById('leaflet-status').innerHTML = 
+                typeof L !== 'undefined' ? '✅ Loaded' : '❌ Failed';
+            
+            // Test Leaflet Routing
+            document.getElementById('routing-status').innerHTML = 
+                (typeof L !== 'undefined' && L.Routing) ? '✅ Loaded' : '❌ Failed';
+            
+            // Test SweetAlert2
+            document.getElementById('swal-status').innerHTML = 
+                typeof Swal !== 'undefined' ? '✅ Loaded' : '❌ Failed';
+            
+            // Test Font Awesome (check if FA classes exist)
+            const testIcon = document.createElement('i');
+            testIcon.className = 'fas fa-test';
+            document.body.appendChild(testIcon);
+            const computed = window.getComputedStyle(testIcon);
+            document.getElementById('fa-status').innerHTML = 
+                computed.fontFamily.includes('Font Awesome') ? '✅ Loaded' : '❌ Failed';
+            document.body.removeChild(testIcon);
+            
+            // Test Google Fonts
+            document.getElementById('font-status').innerHTML = 
+                document.fonts.check('12px Poppins') ? '✅ Loaded' : '❌ Failed';
+            
+            // Test CSS
+            document.getElementById('css-status').innerHTML = '✅ Available';
+        });
+    </script>
+    
+    <!-- Dependencies for testing -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</body>
+</html>

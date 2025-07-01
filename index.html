@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Map Pro - A modern, feature-rich mapping application with routing, markers, and location services">
+    <meta name="keywords" content="map, interactive map, routing, markers, location, geolocation, navigation">
+    <meta name="author" content="Interactive Map Pro">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Interactive Map Pro">
+    <meta property="og:description" content="A modern, feature-rich mapping application with routing, markers, and location services">
+    <meta property="og:image" content="./assets/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="">
+    <meta property="twitter:title" content="Interactive Map Pro">
+    <meta property="twitter:description" content="A modern, feature-rich mapping application with routing, markers, and location services">
+    <meta property="twitter:image" content="./assets/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="./assets/site.webmanifest">
+    
+    <title>Interactive Map Pro - Modern Mapping Application</title>
+    <!-- Google Fonts - Enhanced with more weights -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Azure Maps Web SDK CSS (modern look) -->
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2.0" />
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <!-- Leaflet Routing Machine JavaScript -->
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <!-- Add SweetAlert2 for better dialogs -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Azure Maps Web SDK (for Azure look) -->
+    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2.0"></script>
+</head>
+<body>
+    <header class="modern-header">
+        <div class="logo">🗺️</div>
+        <h1><i class="fas fa-map-marked-alt"></i> Interactive Map Pro</h1>
+        <div class="actions">
+            <button id="help-btn" title="Help & Controls">
+                <i class="fas fa-question"></i>
+            </button>
+            <button id="settings-btn" title="Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+        </div>
+    </header>
+    <!-- Loading screen -->
+    <div id="loading-screen" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    ">
+        <div style="
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: modernSpin 1s linear infinite;
+            margin-bottom: 24px;
+        "></div>
+        <h2 style="
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin: 0;
+            font-size: 1.5rem;
+        ">
+            <i class="fas fa-map-marked-alt"></i> Loading Interactive Map Pro
+        </h2>
+        <p style="
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Poppins', sans-serif;
+            margin: 8px 0 0 0;
+            font-size: 1rem;
+        ">Preparing your mapping experience...</p>
+    </div>
+    <!-- Map container -->
+    <div id="map"></div>
+    <!-- Bottom toast notification area -->
+    <div id="toast-container"></div>
+    <!-- Custom JavaScript -->
+    <script src="map.js"></script>
+</body>
+</html>
